@@ -1,16 +1,3 @@
-// ============================================
-//  HOTSPOT MAILER - ENHANCED APPLICATION
-//  Multi-recipient & News Sources Support
-// ============================================
-
-// Constants
-const CONFIG_KEY = 'hotspot_admin_config';
-const SESSION_KEY = 'hotspot_admin_session';
-
-// DOM Elements
-const configForm = document.getElementById('configForm');
-const addScheduleBtn = document.getElementById('addScheduleBtn');
-const scheduleContainer = document.getElementById('scheduleContainer');
 const addRecipientBtn = document.getElementById('addRecipientBtn');
 const recipientsContainer = document.getElementById('recipientsContainer');
 const addCustomSourceBtn = document.getElementById('addCustomSourceBtn');
