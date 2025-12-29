@@ -4,309 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="管理后台 - HotSpot Mailer">
-    <title>Admin Dashboard | HotSpot Mailer</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>管理后台 - HotSpot Mailer</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap"
         rel="stylesheet">
-
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="admin.css">
 </head>
 
 <body>
-    <!-- Animated Background -->
-    <div class="background">
-        <div class="stars"></div>
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
-    </div>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
 
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Header with Admin Controls -->
-        <header class="header">
-            <div class="logo">
-                <i data-lucide="shield-check" class="logo-icon"></i>
-                <h1 class="logo-text">Admin<span class="accent">Panel</span></h1>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i data-lucide="shield"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>管理后台</h1>
+                    <p>System Administration</p>
+                </div>
             </div>
-            <div class="admin-controls">
-                <span class="admin-user">
-                    <i data-lucide="user"></i>
-                    <span id="adminUsername">Admin</span>
-                </span>
-                <button class="btn-icon btn-logout" id="logoutBtn" title="退出登录">
-                    <i data-lucide="log-out"></i>
+            <div class="header-actions">
+                <span id="adminUser" class="admin-badge">Admin</span>
+                <button id="logoutBtn" class="btn-outline">
+                    <i data-lucide="log-out"></i> 退出
                 </button>
             </div>
         </header>
 
-        <!-- Main Content -->
         <main class="main-content">
-            <!-- Quick Stats -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <i data-lucide="mail"></i>
+            <div class="dashboard-grid">
+                <!-- Stats -->
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon"><i data-lucide="mail"></i></div>
+                    <div class="stat-info">
+                        <h3>已发送邮件</h3>
+                        <p class="stat-number">1,234</p>
                     </div>
-                    <div class="stat-content">
-                        <div class="stat-label">Total Sent</div>
-                        <div class="stat-value" id="totalSent">0</div>
+                </div>
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon"><i data-lucide="users"></i></div>
+                    <div class="stat-info">
+                        <h3>活跃订阅</h3>
+                        <p class="stat-number">56</p>
+                    </div>
+                </div>
+                <div class="stat-card glass-panel">
+                    <div class="stat-icon"><i data-lucide="activity"></i></div>
+                    <div class="stat-info">
+                        <h3>系统状态</h3>
+                        <p class="stat-status online">运行中</p>
                     </div>
                 </div>
 
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <i data-lucide="clock"></i>
+                <!-- Recent Logs -->
+                <div class="logs-panel glass-panel full-width">
+                    <div class="panel-header">
+                        <h3><i data-lucide="file-text"></i> 发送日志</h3>
+                        <button class="btn-text">查看全部</button>
                     </div>
-                    <div class="stat-content">
-                        <div class="stat-label">Days Running</div>
-                        <div class="stat-value" id="daysRunning">0</div>
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <i data-lucide="calendar"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-label">Days Remaining</div>
-                        <div class="stat-value" id="daysRemaining">365</div>
-                    </div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                        <i data-lucide="activity"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-label">Status</div>
-                        <div class="stat-value stat-status" id="systemStatus">
-                            <span class="status-dot active"></span>
-                            Active
+                    <div class="logs-list">
+                        <div class="log-item">
+                            <span class="log-time">10:00</span>
+                            <span class="log-status success">成功</span>
+                            <span class="log-detail">发送日报到 mroma@qq.com</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tabs Navigation -->
-            <div class="tabs">
-                <button class="tab-btn active" data-tab="config">
-                    <i data-lucide="settings"></i>
-                    系统配置
-                </button>
-                <button class="tab-btn" data-tab="security">
-                    <i data-lucide="lock"></i>
-                    安全设置
-                </button>
-                <button class="tab-btn" data-tab="logs">
-                    <i data-lucide="file-text"></i>
-                    发送记录
-                </button>
-            </div>
-
-            <!-- Tab Content -->
-            <div class="tab-content">
-                <!-- Configuration Tab -->
-                <div class="tab-pane active" id="config-tab">
-                    <div class="config-card">
-                        <div class="card-header">
-                            <h2>
-                                <i data-lucide="settings"></i>
-                                推送配置
-                            </h2>
-                            <button class="btn-secondary" id="editConfigBtn">
-                                <i data-lucide="edit"></i>
-                                编辑配置
-                            </button>
-                        </div>
-
-                        <div class="config-display" id="configDisplay">
-                            <!-- Config will be loaded dynamically -->
-                            <div class="config-section">
-                                <h3>邮件设置</h3>
-                                <div class="config-item">
-                                    <span class="config-label">接收邮箱:</span>
-                                    <span class="config-value" id="displayEmail">未设置</span>
-                                </div>
-                                <div class="config-item">
-                                    <span class="config-label">SMTP服务器:</span>
-                                    <span class="config-value" id="displaySmtp">未设置</span>
-                                </div>
-                            </div>
-
-                            <div class="config-section">
-                                <h3>内容设置</h3>
-                                <div class="config-item">
-                                    <span class="config-label">关注领域:</span>
-                                    <span class="config-value" id="displayDomain">未设置</span>
-                                </div>
-                                <div class="config-item">
-                                    <span class="config-label">每次条数:</span>
-                                    <span class="config-value" id="displayCount">10</span>
-                                </div>
-                                <div class="config-item">
-                                    <span class="config-label">字数限制:</span>
-                                    <span class="config-value" id="displayWords">200</span>
-                                </div>
-                            </div>
-
-                            <div class="config-section">
-                                <h3>定时设置</h3>
-                                <div class="config-item">
-                                    <span class="config-label">发送时间:</span>
-                                    <span class="config-value" id="displaySchedule">未设置</span>
-                                </div>
-                                <div class="config-item">
-                                    <span class="config-label">运行天数:</span>
-                                    <span class="config-value" id="displayDays">365天</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Security Tab -->
-                <div class="tab-pane" id="security-tab">
-                    <div class="config-card">
-                        <div class="card-header">
-                            <h2>
-                                <i data-lucide="lock"></i>
-                                修改管理员密码
-                            </h2>
-                        </div>
-
-                        <form id="changePasswordForm" class="security-form">
-                            <div class="form-group">
-                                <label for="currentPassword" class="form-label">当前密码</label>
-                                <div class="password-input-wrapper">
-                                    <input type="password" id="currentPassword" class="form-input" placeholder="输入当前密码"
-                                        required>
-                                    <button type="button" class="toggle-password" data-target="currentPassword">
-                                        <i data-lucide="eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="newPassword" class="form-label">新密码</label>
-                                <div class="password-input-wrapper">
-                                    <input type="password" id="newPassword" class="form-input" placeholder="输入新密码（至少6位）"
-                                        required minlength="6">
-                                    <button type="button" class="toggle-password" data-target="newPassword">
-                                        <i data-lucide="eye"></i>
-                                    </button>
-                                </div>
-                                <div class="password-strength" id="passwordStrength">
-                                    <div class="strength-bar">
-                                        <div class="strength-fill"></div>
-                                    </div>
-                                    <span class="strength-text">密码强度: <span id="strengthText">弱</span></span>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="confirmPassword" class="form-label">确认新密码</label>
-                                <div class="password-input-wrapper">
-                                    <input type="password" id="confirmPassword" class="form-input" placeholder="再次输入新密码"
-                                        required>
-                                    <button type="button" class="toggle-password" data-target="confirmPassword">
-                                        <i data-lucide="eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="form-actions">
-                                <button type="submit" class="btn-primary">
-                                    <i data-lucide="save"></i>
-                                    保存新密码
-                                </button>
-                            </div>
-                        </form>
-
-                        <div class="security-info">
-                            <h3>
-                                <i data-lucide="info"></i>
-                                安全提示
-                            </h3>
-                            <ul>
-                                <li>密码长度至少6位，建议使用字母、数字和符号组合</li>
-                                <li>定期更新密码可以提高账户安全性</li>
-                                <li>不要使用容易被猜到的密码</li>
-                                <li>修改密码后需要重新登录</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Logs Tab -->
-                <div class="tab-pane" id="logs-tab">
-                    <div class="config-card">
-                        <div class="card-header">
-                            <h2>
-                                <i data-lucide="file-text"></i>
-                                发送记录
-                            </h2>
-                            <button class="btn-secondary" id="refreshLogsBtn">
-                                <i data-lucide="refresh-cw"></i>
-                                刷新
-                            </button>
-                        </div>
-
-                        <div class="logs-container" id="logsContainer">
-                            <div class="empty-state">
-                                <i data-lucide="inbox"></i>
-                                <p>暂无发送记录</p>
-                            </div>
+                        <div class="log-item">
+                            <span class="log-time">08:00</span>
+                            <span class="log-status success">成功</span>
+                            <span class="log-detail">批量发送任务完成 (10/10)</span>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Powered by <strong>Cloudflare Pages</strong> · 完全免费 · 全球加速</p>
-        </footer>
-    </div>
-
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <i data-lucide="check-circle" class="toast-icon"></i>
-        <span class="toast-message">操作成功！</span>
-    </div>
-
-    <!-- Confirmation Modal -->
-    <div class="modal" id="confirmModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle">确认操作</h3>
-                <button class="modal-close" id="closeConfirmModal">
-                    <i data-lucide="x"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p id="modalMessage">确定要执行此操作吗？</p>
-            </div>
-            <div class="modal-actions">
-                <button class="btn-secondary" id="cancelModalBtn">取消</button>
-                <button class="btn-primary" id="confirmModalBtn">确定</button>
-            </div>
-        </div>
     </div>
 
     <script src="admin.js"></script>
     <script>
-        // Initialize Lucide icons
         lucide.createIcons();
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            if (confirm('确定要退出登录吗？')) {
+                localStorage.removeItem('isLoggedIn');
+                window.location.href = 'index.html';
+            }
+        });
     </script>
 </body>
 

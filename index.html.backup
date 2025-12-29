@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="鏅鸿兘鐑偣鎺ㄩ€佺郴缁?- 鑷姩鑾峰彇鐑偣璧勮锛屽畾鏃跺彂閫佸埌鎮ㄧ殑閭">
+    <meta name="keywords" content="鐑偣,閭欢鎺ㄩ€?鑷姩鍖?璧勮璁㈤槄">
+    <title>鏅鸿兘鐑偣鎺ㄩ€佺郴缁?| HotSpot Mailer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background">
+        <div class="stars"></div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i data-lucide="zap" class="logo-icon"></i>
+                <h1 class="logo-text">HotSpot<span class="accent">Mailer</span></h1>
+            </div>
+            <p class="tagline">鏅鸿兘鐑偣 路 鑷姩鎺ㄩ€?路 365澶╁叏骞存棤浼?/p>
+
+            <!-- Quick Actions (dynamically added by app.js) -->
+            <div class="header-actions" id="headerActions">
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Status Card -->
+            <div class="status-card" id="statusCard">
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">鏈縺娲?/span>
+                </div>
+                <div class="status-info">
+                    <p>閰嶇疆瀹屾垚鍚庤嚜鍔ㄥ惎鍔ㄥ畾鏃朵换鍔?/p>
+                </div>
+            </div>
+
+            <!-- Configuration Form -->
+            <div class="config-card">
+                <div class="card-header">
+                    <i data-lucide="settings" class="header-icon"></i>
+                    <h2>鎺ㄩ€侀厤缃?/h2>
+                </div>
+
+                <!-- Content Settings (MOVED TO TOP) -->
+                <section class="form-section">
+                    <h3 class="section-title">
+                        <i data-lucide="newspaper" class="section-icon"></i>
+                        鍐呭璁剧疆
+                    </h3>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i data-lucide="globe"></i>
+                            鏂伴椈鏉ユ簮锛堝彲閫夋嫨澶氫釜锛?
+                        </label>
+                        <div class="news-sources-grid">
+                            <!-- 鍥介檯鏂伴椈婧?-->
+                            <div class="source-category">
+                                <h4 class="category-title">鍥介檯闂ㄦ埛</h4>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="cnn" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="radio"></i>
+                                        CNN
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="bbc" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="radio"></i>
+                                        BBC News
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="nhk" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="radio"></i>
+                                        NHK
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="yahoo" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="radio"></i>
+                                        Yahoo News
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="reuters" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="radio"></i>
+                                        Reuters
+                                    </span>
+                                </label>
+                            </div>
+
+                            <!-- 璋锋瓕鏂伴椈 -->
+                            <div class="source-category">
+                                <h4 class="category-title">璋锋瓕鏈嶅姟</h4>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="google-news" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="search"></i>
+                                        Google News
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="google-en" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="globe"></i>
+                                        Google (鑻辨枃)
+                                    </span>
+                                </label>
+                            </div>
+
+                            <!-- 涓枃鏂伴椈婧?-->
+                            <div class="source-category">
+                                <h4 class="category-title">涓枃璧勮</h4>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="baidu" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="trending-up"></i>
+                                        鐧惧害鐑悳
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="zhihu" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="message-circle"></i>
+                                        鐭ヤ箮鐑
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="weibo" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="hash"></i>
+                                        寰崥鐑悳
+                                    </span>
+                                </label>
+                            </div>
+
+                            <!-- 鎼滅储寮曟搸 -->
+                            <div class="source-category">
+                                <h4 class="category-title">鎼滅储寮曟搸</h4>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="bing" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="search"></i>
+                                        Bing News
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="sogou" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="search"></i>
+                                        鎼滅嫍鐑悳
+                                    </span>
+                                </label>
+                            </div>
+
+                            <!-- 绉戞妧涓庤涓?-->
+                            <div class="source-category">
+                                <h4 class="category-title">绉戞妧琛屼笟</h4>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="hackernews" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="code"></i>
+                                        Hacker News
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="github" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="github"></i>
+                                        GitHub Trending
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="techcrunch" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="rocket"></i>
+                                        TechCrunch
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 鑷畾涔夋柊闂绘簮 -->
+                        <div class="custom-sources-section" style="margin-top: 1.5rem;">
+                            <label class="form-label">
+                                <i data-lucide="plus-circle"></i>
+                                鑷畾涔夋柊闂绘簮
+                            </label>
+                            <div class="custom-sources-container" id="customSourcesContainer">
+                                <!-- Custom sources will be added here -->
+                            </div>
+                            <button type="button" class="btn-secondary" id="addCustomSourceBtn"
+                                style="margin-top: 0.75rem;">
+                                <i data-lucide="plus"></i>
+                                娣诲姞鑷畾涔夋簮
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contentDomain" class="form-label">鍏虫敞棰嗗煙</label>
+                        <input type="text" id="contentDomain" class="form-input" placeholder="绉戞妧銆佸ū涔愩€佽储缁忋€佷綋鑲层€佹父鎴?.."
+                            required>
+                        <span class="form-hint">澶氫釜棰嗗煙璇风敤閫楀彿鍒嗛殧</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemCount" class="form-label">姣忔鎺ㄩ€佹潯鏁?/label>
+                            <input type="number" id="itemCount" class="form-input" placeholder="10" min="1" max="50"
+                                value="10" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="wordLimit" class="form-label">姣忔潯瀛楁暟闄愬埗</label>
+                            <input type="number" id="wordLimit" class="form-input" placeholder="200" min="50" max="1000"
+                                value="200" required>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Email Settings (MOVED TO AFTER CONTENT) -->
+                <section class="form-section">
+                    <h3 class="section-title">
+                        <i data-lucide="mail" class="section-icon"></i>
+                        閭欢璁剧疆
+                    </h3>
+
+                    <!-- Multi Recipients -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i data-lucide="users"></i>
+                            鎺ユ敹閭锛堝彲娣诲姞澶氫釜锛?
+                        </label>
+                        <div class="recipients-container" id="recipientsContainer">
+                            <div class="recipient-item">
+                                <input type="email" class="form-input recipient-input" placeholder="email1@example.com"
+                                    required>
+                                <button type="button" class="btn-icon btn-remove-recipient" aria-label="绉婚櫎">
+                                    <i data-lucide="x"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-secondary btn-small" id="addRecipientBtn"
+                            style="margin-top: 0.75rem;">
+                            <i data-lucide="user-plus"></i>
+                            娣诲姞鏀朵欢浜?
+                        </button>
+                    </div>
+
+                    <!-- Sender Credentials -->
+                    <div class="form-group">
+                        <label for="smtpUser" class="form-label">
+                            <i data-lucide="send"></i>
+                            鍙戜欢閭
+                        </label>
+                        <input type="email" id="smtpUser" class="form-input" placeholder="sender@qq.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="smtpPass" class="form-label">
+                            <i data-lucide="key"></i>
+                            鎺堟潈鐮?
+                        </label>
+                        <input type="password" id="smtpPass" class="form-input" placeholder="QQ閭鎺堟潈鐮侊紙闈炵櫥褰曞瘑鐮侊級" required>
+                    </div>
+
+                    <!-- SMTP Configuration -->
+                    <div class="smtp-config">
+                        <h4 class="smtp-title">SMTP 鏈嶅姟鍣ㄨ缃?/h4>
+
+                        <div class="form-group">
+                            <label for="smtpHost" class="form-label">鏈嶅姟鍣ㄥ湴鍧€</label>
+                            <input type="text" id="smtpHost" class="form-input" placeholder="smtp.qq.com" required>
+                            <span class="form-hint">QQ: smtp.qq.com | 163: smtp.163.com | Gmail:
+                                smtp.gmail.com</span>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="smtpPort" class="form-label">绔彛</label>
+                                <input type="number" id="smtpPort" class="form-input" placeholder="465" value="465"
+                                    required>
+                                <span class="form-hint">SSL/TLS: 465 | STARTTLS: 587</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">鍔犲瘑鏂瑰紡</label>
+                                <select id="smtpSecure" class="form-select">
+                                    <option value="true">SSL/TLS (绔彛 465)</option>
+                                    <option value="false">STARTTLS (绔彛587)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <a href="#" class="form-hint-link" id="smtpGuideLink">
+                            <i data-lucide="help-circle"></i>
+                            濡備綍鑾峰彇QQ閭鎺堟潈鐮侊紵
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Schedule Settings -->
+                <section class="form-section">
+                    <h3 class="section-title">
+                        <i data-lucide="clock" class="section-icon"></i>
+                        瀹氭椂璁剧疆
+                    </h3>
+
+                    <div class="schedule-container" id="scheduleContainer">
+                        <div class="schedule-item">
+                            <input type="time" class="schedule-input" value="08:00" required>
+                            <button type="button" class="btn-icon btn-remove-schedule" aria-label="绉婚櫎">
+                                <i data-lucide="x"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-secondary" id="addScheduleBtn">
+                        <i data-lucide="plus"></i>
+                        娣诲姞鍙戦€佹椂闂?
+                    </button>
+
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label for="runDays" class="form-label">杩愯澶╂暟</label>
+                        <input type="number" id="runDays" class="form-input" placeholder="365" min="1" max="365"
+                            value="365" required>
+                        <span class="form-hint">绯荤粺灏嗚嚜鍔ㄨ繍琛屾寚瀹氬ぉ鏁帮紙榛樿365澶╁叏骞磋繍琛岋級</span>
+                    </div>
+                </section>
+
+                <!-- Submit Buttons -->
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="testBtn">
+                        <i data-lucide="send"></i>
+                        娴嬭瘯鍙戦€?
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        <i data-lucide="rocket"></i>
+                        淇濆瓨骞跺惎鍔?
+                    </button>
+                </div>
+                </form>
+            </div>
+
+            <!-- Info Card -->
+            <div class="info-card">
+                <h3 class="info-title">
+                    <i data-lucide="info" class="info-icon"></i>
+                    浣跨敤璇存槑
+                </h3>
+                <ul class="info-list">
+                    <li><strong>SMTP閰嶇疆锛?/strong>浣跨敤QQ閭闇€寮€鍚疭MTP鏈嶅姟骞惰幏鍙栨巿鏉冪爜</li>
+                    <li><strong>鍏虫敞棰嗗煙锛?/strong>鏀寔澶氫釜棰嗗煙锛岀敤閫楀彿鍒嗛殧锛堝锛氱鎶€,娓告垙,璐㈢粡锛?/li>
+                    <li><strong>瀹氭椂鎺ㄩ€侊細</strong>鍙缃涓彂閫佹椂闂达紝绯荤粺灏嗘寜鏃惰嚜鍔ㄦ帹閫?/li>
+                    <li><strong>鑷姩杩愯锛?/strong>閰嶇疆瀹屾垚鍚庤嚜鍔ㄨ繍琛岋紝鍒版湡鑷姩鍋滄</li>
+                    <li><strong>鏁版嵁鏉ユ簮锛?/strong>鑱氬悎鐧惧害銆佺煡涔庛€佸井鍗氱瓑澶氬钩鍙扮儹鐐?/li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by <strong>Cloudflare Pages</strong> 路 瀹屽叏鍏嶈垂 路 鍏ㄧ悆鍔犻€?/p>
+            <p class="footer-links">
+                <a href="https://github.com" target="_blank" rel="noopener">
+                    <i data-lucide="github"></i>
+                    GitHub
+                </a>
+                <span class="separator">|</span>
+                <a href="#" id="deployGuideLink">
+                    <i data-lucide="book-open"></i>
+                    閮ㄧ讲鎸囧崡
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- SMTP Guide Modal -->
+    <div class="modal" id="smtpGuideModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>QQ閭鎺堟潈鐮佽幏鍙栨寚鍗?/h3>
+                <button class="modal-close" id="closeModal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ol class="guide-steps">
+                    <li>
+                        <strong>鐧诲綍QQ閭</strong>
+                        <p>璁块棶 <a href="https://mail.qq.com" target="_blank">mail.qq.com</a> 骞剁櫥褰?/p>
+                    </li>
+                    <li>
+                        <strong>杩涘叆璁剧疆</strong>
+                        <p>鐐瑰嚮椤堕儴"璁剧疆" 鈫?"璐︽埛"</p>
+                    </li>
+                    <li>
+                        <strong>寮€鍚疭MTP鏈嶅姟</strong>
+                        <p>鎵惧埌"POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV鏈嶅姟"</p>
+                        <p>寮€鍚?POP3/SMTP鏈嶅姟"鎴?IMAP/SMTP鏈嶅姟"</p>
+                    </li>
+                    <li>
+                        <strong>鐢熸垚鎺堟潈鐮?/strong>
+                        <p>鐐瑰嚮"鐢熸垚鎺堟潈鐮?锛屾寜鎻愮ず鍙戦€佺煭淇?/p>
+                        <p>澶嶅埗鐢熸垚鐨?6浣嶆巿鏉冪爜锛堥潪QQ瀵嗙爜锛?/p>
+                    </li>
+                    <li>
+                        <strong>濉啓閰嶇疆</strong>
+                        <p>灏嗘巿鏉冪爜绮樿创鍒?鎺堟潈鐮?杈撳叆妗?/p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i data-lucide="check-circle" class="toast-icon"></i>
+        <span class="toast-message">鎿嶄綔鎴愬姛锛?/span>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
+
