@@ -2,11 +2,6 @@ name = "hotspot-mailer-api"
 main = "worker.js"
 compatibility_date = "2024-01-01"
 
-# Workers 路由配置
-routes = [
-  { pattern = "*/api/*", zone_name = "your-domain.com" }
-]
-
 # 环境变量（可选）
 [env.production.vars]
 ENVIRONMENT = "production"
