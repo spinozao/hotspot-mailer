@@ -1,0 +1,21 @@
+{
+    "name": "hotspot-mailer",
+    "version": "1.0.0",
+    "description": "智能热点资讯自动推送系统",
+    "main": "test-email.js",
+    "scripts": {
+        "test-email": "node test-email.js",
+        "dev": "cd public && python -m http.server 8080"
+    },
+    "keywords": [
+        "email",
+        "newsletter",
+        "hotspot",
+        "news"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "nodemailer": "^6.10.1"
+    }
+}

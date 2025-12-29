@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="智能热点推送系�?- 自动获取热点资讯，定时发送到您的邮箱">
+    <meta name="keywords" content="热点,邮件推�?自动�?资讯订阅">
+    <title>智能热点推送系�?| HotSpot Mailer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background">
+        <div class="stars"></div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i data-lucide="zap" class="logo-icon"></i>
+                <h1 class="logo-text">HotSpot<span class="accent">Mailer</span></h1>
+            </div>
+            <p class="tagline">智能热点 · 自动推�?· 365天全年无�?/p>
+
+            <!-- Quick Actions (dynamically added by app.js) -->
+            <div class="header-actions" id="headerActions">
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Status Card -->
+            <div class="status-card" id="statusCard">
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">未激�?/span>
+                </div>
+                <div class="status-info">
+                    <p>配置完成后自动启动定时任�?/p>
+                </div>
+            </div>
+
+            <!-- Configuration Form -->
+            <div class="config-card">
+                <div class="card-header">
+                    <i data-lucide="settings" class="header-icon"></i>
+                    <h2>推送配�?/h2>
+                </div>
+
+                <!-- Content Settings (MOVED TO TOP) -->
+                <section class="form-section">
+                    <h3 class="section-title">
+                        <i data-lucide="newspaper" class="section-icon"></i>
+                        内容设置
+                    </h3>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i data-lucide="globe"></i>
+                            新闻来源（可选择多个�?
+                        </label>
+                        <div class="news-sources-grid">
+                            <!-- 国际新闻�?-->
+                            <div class="source-category">
+                                <h4 class="category-title">国际门户</h4>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="cnn" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="radio"></i>
+                                        CNN
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="bbc" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="radio"></i>
+                                        BBC News
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="nhk" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="radio"></i>
+                                        NHK
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="yahoo" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="radio"></i>
+                                        Yahoo News
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="reuters" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="radio"></i>
+                                        Reuters
+                                    </span>
+                                </label>
+                            </div>
+
+                            <!-- 谷歌新闻 -->
+                            <div class="source-category">
+                                <h4 class="category-title">谷歌服务</h4>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="google-news" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="search"></i>
+                                        Google News
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="google-en" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="globe"></i>
+                                        Google (英文)
+                                    </span>
+                                </label>
+                            </div>
+
+                            <!-- 中文新闻�?-->
+                            <div class="source-category">
+                                <h4 class="category-title">中文资讯</h4>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="baidu" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="trending-up"></i>
+                                        百度热搜
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="zhihu" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="message-circle"></i>
+                                        知乎热榜
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="weibo" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="hash"></i>
+                                        微博热搜
+                                    </span>
+                                </label>
+                            </div>
+
+                            <!-- 搜索引擎 -->
+                            <div class="source-category">
+                                <h4 class="category-title">搜索引擎</h4>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="bing" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="search"></i>
+                                        Bing News
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="sogou" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="search"></i>
+                                        搜狗热搜
+                                    </span>
+                                </label>
+                            </div>
+
+                            <!-- 科技与行�?-->
+                            <div class="source-category">
+                                <h4 class="category-title">科技行业</h4>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="hackernews" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="code"></i>
+                                        Hacker News
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="github" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="github"></i>
+                                        GitHub Trending
+                                    </span>
+                                </label>
+                                <label class="source-checkbox">
+                                    <input type="checkbox" name="newsSource" value="techcrunch" class="checkbox-input">
+                                    <span class="checkbox-label">
+                                        <i data-lucide="rocket"></i>
+                                        TechCrunch
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 自定义新闻源 -->
+                        <div class="custom-sources-section" style="margin-top: 1.5rem;">
+                            <label class="form-label">
+                                <i data-lucide="plus-circle"></i>
+                                自定义新闻源
+                            </label>
+                            <div class="custom-sources-container" id="customSourcesContainer">
+                                <!-- Custom sources will be added here -->
+                            </div>
+                            <button type="button" class="btn-secondary" id="addCustomSourceBtn"
+                                style="margin-top: 0.75rem;">
+                                <i data-lucide="plus"></i>
+                                添加自定义源
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contentDomain" class="form-label">关注领域</label>
+                        <input type="text" id="contentDomain" class="form-input" placeholder="科技、娱乐、财经、体育、游�?.."
+                            required>
+                        <span class="form-hint">多个领域请用逗号分隔</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemCount" class="form-label">每次推送条�?/label>
+                            <input type="number" id="itemCount" class="form-input" placeholder="10" min="1" max="50"
+                                value="10" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="wordLimit" class="form-label">每条字数限制</label>
+                            <input type="number" id="wordLimit" class="form-input" placeholder="200" min="50" max="1000"
+                                value="200" required>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Email Settings (MOVED TO AFTER CONTENT) -->
+                <section class="form-section">
+                    <h3 class="section-title">
+                        <i data-lucide="mail" class="section-icon"></i>
+                        邮件设置
+                    </h3>
+
+                    <!-- Multi Recipients -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i data-lucide="users"></i>
+                            接收邮箱（可添加多个�?
+                        </label>
+                        <div class="recipients-container" id="recipientsContainer">
+                            <div class="recipient-item">
+                                <input type="email" class="form-input recipient-input" placeholder="email1@example.com"
+                                    required>
+                                <button type="button" class="btn-icon btn-remove-recipient" aria-label="移除">
+                                    <i data-lucide="x"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-secondary btn-small" id="addRecipientBtn"
+                            style="margin-top: 0.75rem;">
+                            <i data-lucide="user-plus"></i>
+                            添加收件�?
+                        </button>
+                    </div>
+
+                    <!-- Sender Credentials -->
+                    <div class="form-group">
+                        <label for="smtpUser" class="form-label">
+                            <i data-lucide="send"></i>
+                            发件邮箱
+                        </label>
+                        <input type="email" id="smtpUser" class="form-input" placeholder="sender@qq.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="smtpPass" class="form-label">
+                            <i data-lucide="key"></i>
+                            授权�?
+                        </label>
+                        <input type="password" id="smtpPass" class="form-input" placeholder="QQ邮箱授权码（非登录密码）" required>
+                    </div>
+
+                    <!-- SMTP Configuration -->
+                    <div class="smtp-config">
+                        <h4 class="smtp-title">SMTP 服务器设�?/h4>
+
+                        <div class="form-group">
+                            <label for="smtpHost" class="form-label">服务器地址</label>
+                            <input type="text" id="smtpHost" class="form-input" placeholder="smtp.qq.com" required>
+                            <span class="form-hint">QQ: smtp.qq.com | 163: smtp.163.com | Gmail:
+                                smtp.gmail.com</span>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="smtpPort" class="form-label">端口</label>
+                                <input type="number" id="smtpPort" class="form-input" placeholder="465" value="465"
+                                    required>
+                                <span class="form-hint">SSL/TLS: 465 | STARTTLS: 587</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">加密方式</label>
+                                <select id="smtpSecure" class="form-select">
+                                    <option value="true">SSL/TLS (端口 465)</option>
+                                    <option value="false">STARTTLS (端口587)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <a href="#" class="form-hint-link" id="smtpGuideLink">
+                            <i data-lucide="help-circle"></i>
+                            如何获取QQ邮箱授权码？
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Schedule Settings -->
+                <section class="form-section">
+                    <h3 class="section-title">
+                        <i data-lucide="clock" class="section-icon"></i>
+                        定时设置
+                    </h3>
+
+                    <div class="schedule-container" id="scheduleContainer">
+                        <div class="schedule-item">
+                            <input type="time" class="schedule-input" value="08:00" required>
+                            <button type="button" class="btn-icon btn-remove-schedule" aria-label="移除">
+                                <i data-lucide="x"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-secondary" id="addScheduleBtn">
+                        <i data-lucide="plus"></i>
+                        添加发送时�?
+                    </button>
+
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label for="runDays" class="form-label">运行天数</label>
+                        <input type="number" id="runDays" class="form-input" placeholder="365" min="1" max="365"
+                            value="365" required>
+                        <span class="form-hint">系统将自动运行指定天数（默认365天全年运行）</span>
+                    </div>
+                </section>
+
+                <!-- Submit Buttons -->
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="testBtn">
+                        <i data-lucide="send"></i>
+                        测试发�?
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        <i data-lucide="rocket"></i>
+                        保存并启�?
+                    </button>
+                </div>
+                </form>
+            </div>
+
+            <!-- Info Card -->
+            <div class="info-card">
+                <h3 class="info-title">
+                    <i data-lucide="info" class="info-icon"></i>
+                    使用说明
+                </h3>
+                <ul class="info-list">
+                    <li><strong>SMTP配置�?/strong>使用QQ邮箱需开启SMTP服务并获取授权码</li>
+                    <li><strong>关注领域�?/strong>支持多个领域，用逗号分隔（如：科技,游戏,财经�?/li>
+                    <li><strong>定时推送：</strong>可设置多个发送时间，系统将按时自动推�?/li>
+                    <li><strong>自动运行�?/strong>配置完成后自动运行，到期自动停止</li>
+                    <li><strong>数据来源�?/strong>聚合百度、知乎、微博等多平台热�?/li>
+                </ul>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by <strong>Cloudflare Pages</strong> · 完全免费 · 全球加�?/p>
+            <p class="footer-links">
+                <a href="https://github.com" target="_blank" rel="noopener">
+                    <i data-lucide="github"></i>
+                    GitHub
+                </a>
+                <span class="separator">|</span>
+                <a href="#" id="deployGuideLink">
+                    <i data-lucide="book-open"></i>
+                    部署指南
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- SMTP Guide Modal -->
+    <div class="modal" id="smtpGuideModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>QQ邮箱授权码获取指�?/h3>
+                <button class="modal-close" id="closeModal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ol class="guide-steps">
+                    <li>
+                        <strong>登录QQ邮箱</strong>
+                        <p>访问 <a href="https://mail.qq.com" target="_blank">mail.qq.com</a> 并登�?/p>
+                    </li>
+                    <li>
+                        <strong>进入设置</strong>
+                        <p>点击顶部"设置" �?"账户"</p>
+                    </li>
+                    <li>
+                        <strong>开启SMTP服务</strong>
+                        <p>找到"POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务"</p>
+                        <p>开�?POP3/SMTP服务"�?IMAP/SMTP服务"</p>
+                    </li>
+                    <li>
+                        <strong>生成授权�?/strong>
+                        <p>点击"生成授权�?，按提示发送短�?/p>
+                        <p>复制生成�?6位授权码（非QQ密码�?/p>
+                    </li>
+                    <li>
+                        <strong>填写配置</strong>
+                        <p>将授权码粘贴�?授权�?输入�?/p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i data-lucide="check-circle" class="toast-icon"></i>
+        <span class="toast-message">操作成功�?/span>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
